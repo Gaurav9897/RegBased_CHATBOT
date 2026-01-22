@@ -9,7 +9,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 
 # Configure the mdodels
-gemini_key = os.getenv('GOOGLE_API_KEY3')
+gemini_key = os.getenv('GOOGLE_API_KEY2')
 genai.configure(api_key=gemini_key)
 model = genai.GenerativeModel('gemini-2.5-flash-lite')
 
@@ -77,4 +77,5 @@ if pdf_file:
     if user_query and send:
         st.session_state.history.append({'role':'user','text':user_query})
         st.session_state.history.append({'role':'chatbot','text':generate_content(user_query)})
+
         st.rerun()
